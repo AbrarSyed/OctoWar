@@ -42,10 +42,19 @@ project(":core") {
 
 
     dependencies {
+		compile project(":blastcube")
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    }
+}
+
+project(":blastcube") {
+	apply plugin: "java"
+	dependencies {        
+        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"        
     }
 }
 
 tasks.eclipse.doLast {
     delete ".project"
 }
+
