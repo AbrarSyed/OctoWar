@@ -23,8 +23,8 @@ public class DrawingSystem {
     private SpriteBatch batch;
     private int screenHeight;
 
-    public DrawingSystem(SpriteBatch batch) {
-    	this.batch = batch;
+    public DrawingSystem() {
+    	this.batch = new SpriteBatch();
     	this.screenHeight = Gdx.graphics.getHeight();
     }
     
@@ -57,6 +57,7 @@ public class DrawingSystem {
 	// Sort them by Z, and keep them contiguous.
 	private void sortAndCacheSprites() {
 		// This conversion is expensive, but gets us a sorted list.
+		// TODO: pass in the new entity and re-sort just that guy.
 		this.spriteCache = new ArrayList<SpriteComponent>(this.entitySprites.values());
     	Collections.sort(this.spriteCache, new Comparator<SpriteComponent>() {
     	     public int compare(SpriteComponent o1, SpriteComponent o2) {
