@@ -48,7 +48,7 @@ public class EntityTest {
         Entity e = new Entity();
 
         Component c1 = new StringComponent(e, "stringz");
-        Component c2 = new IntComponent(e,17);
+        Component c2 = new IntComponent(e, 17);
         // It's off to work we go ...
         e.add(c1);
         e.add(c2);

@@ -3,13 +3,14 @@ buildscript {
         mavenCentral()
         mavenLocal()
     }
+    
     dependencies {
     }
 }
 
 allprojects {
     apply plugin: "eclipse"
-    apply plugin: "idea"
+    apply plugin: "java"
 
     version = '1.0'
     ext {
@@ -24,6 +25,18 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
+    
+    dependencies {
+		testCompile 'junit:junit:4.+'
+	}
+    
+    // Always log test output, pass/fail/etc.
+	test {
+		testLogging {
+			events "passed", "skipped", "failed", "standardOut", "standardError"
+			outputs.upToDateWhen { false }
+		}
+	}	
 }
 
 project(":desktop") {
@@ -57,4 +70,3 @@ project(":blastcube") {
 tasks.eclipse.doLast {
     delete ".project"
 }
-
