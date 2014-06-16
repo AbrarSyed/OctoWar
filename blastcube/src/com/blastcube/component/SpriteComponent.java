@@ -14,4 +14,12 @@ public class SpriteComponent extends Component {
 	public Texture getTexture() {
 		return this.texture;		
 	}
+	
+	public int getWidth() {
+		return this.getTexture().getWidth();
+	}
+
+	public int getHeight() {
+		return this.getTexture().getHeight();
+	}
 }
