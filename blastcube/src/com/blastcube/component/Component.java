@@ -11,11 +11,7 @@ public abstract class Component {
 
     private Entity parent;
     private Map<String, Collection<Action>> eventHandlers = new HashMap<String, Collection<Action>>();
-
-    public Component(Entity parent) {
-        this.parent = parent;
-    }
-
+    
     public void bind(String eventName, Action callback) {
         if (!this.hasAnyHandlersFor(eventName)) {
             this.eventHandlers.put(eventName, new ArrayList<Action>());
@@ -36,4 +32,8 @@ public abstract class Component {
     private boolean hasAnyHandlersFor(String eventName) {
         return this.eventHandlers.containsKey(eventName);
     }
+
+	public void setParent(Entity entity) {
+		this.parent = entity;
+	}
 }
