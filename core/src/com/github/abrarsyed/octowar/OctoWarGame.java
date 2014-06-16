@@ -1,27 +1,24 @@
 package com.github.abrarsyed.octowar;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.blastcube.Game;
 import com.blastcube.component.SpriteComponent;
 import com.blastcube.entity.Entity;
 import com.blastcube.system.DrawingSystem;
 
-public class OctoWarGame extends ApplicationAdapter {
+public class OctoWarGame extends Game {
 	
 	private DrawingSystem drawing;
 	
 	@Override
-	public void create () {
-		drawing = new DrawingSystem(new SpriteBatch());
-		addSprite("badlogic.jpg", 32, 16, 10);		
-		addSprite("bear.png", 32, 32, 1);
+	public void create() {
+		drawing = new DrawingSystem();
+		addSprite("badlogic.jpg", 32, 16, 10);
+		// Added last but drawn underneath
+		addSprite("bear.png", -10, -10, 1);
 	}
 
 	@Override
-	public void render () {
+	public void render() {
 		drawing.draw();
 	}
 	
