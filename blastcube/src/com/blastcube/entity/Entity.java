@@ -1,21 +1,16 @@
 package com.blastcube.entity;
 
-import com.blastcube.component.Action;
 import com.blastcube.component.Component;
 import com.google.common.collect.MutableClassToInstanceMap;
-
-import java.util.ArrayList;
 
 public class Entity {
 
     private MutableClassToInstanceMap<Component> components = MutableClassToInstanceMap.create();
 
     public Entity(Component... components) {
-        // Normal component constructor requires an entity parent.
-        // This requires a separate constructor, with no parent.
-        // The entity must set the parent.
-        for (Component c : components) {
-            this.add(c);
+       for (Component c : components) {
+    	   c.setParent(this);
+           this.add(c);
         }
     }
 
