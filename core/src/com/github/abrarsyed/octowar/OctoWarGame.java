@@ -15,12 +15,22 @@ public class OctoWarGame extends ApplicationAdapter {
 	
 	@Override
 	public void create () {
-		drawing = new DrawingSystem(new SpriteBatch());						
-		drawing.addEntity(new Entity(new SpriteComponent("badlogic.jpg")));
+		drawing = new DrawingSystem(new SpriteBatch());
+		addSprite("badlogic.jpg", 32, 16, 10);		
+		addSprite("bear.png", 32, 32, 1);
 	}
 
 	@Override
 	public void render () {
 		drawing.draw();
+	}
+	
+	// Delete this, it's for testing.
+	private void addSprite(String fileName, int x, int y, int z) {
+		SpriteComponent s = new SpriteComponent(fileName);
+		s.setX(x);
+		s.setY(y);		
+		s.setZ(z);
+		drawing.addEntity(new Entity(s));
 	}
 }
