@@ -15,9 +15,11 @@ public class DrawingSystem {
 
     private Map<Entity, SpriteComponent> entitySprites = new HashMap<Entity, SpriteComponent>();
     private SpriteBatch batch;
+    private int screenHeight;
 
     public DrawingSystem(SpriteBatch batch) {
     	this.batch = batch;
+    	this.screenHeight = Gdx.graphics.getHeight();
     }
     
     public void initialize(Entity[] entities) {
@@ -37,8 +39,9 @@ public class DrawingSystem {
 				
     	// TODO: order by Z-index
     	for (SpriteComponent s : this.entitySprites.values()) {
-    		// TODO: draw y-inverted
-    		batch.draw(s.getTexture(), 0, 0);
+    		// Draw y-inverted (Y at the top-left corner)
+    		int yPrime = this.screenHeight - s.getHeight();
+    		batch.draw(s.getTexture(), 0, yPrime);
     	}
     	
     	batch.end();
