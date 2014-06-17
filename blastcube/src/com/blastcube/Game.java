@@ -27,5 +27,8 @@ public abstract class Game  extends ApplicationAdapter {
 	
 	protected void addEntity(Entity e) {
 		this.entities.add(e);
+		if (this.drawing != null) {
+			this.drawing.addedEntity(e);
+		}
 	}
 }
