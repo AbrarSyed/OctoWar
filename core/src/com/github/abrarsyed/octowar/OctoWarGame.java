@@ -6,20 +6,11 @@ import com.blastcube.entity.Entity;
 import com.blastcube.system.DrawingSystem;
 
 public class OctoWarGame extends Game {
-	
-	private DrawingSystem drawing;
-	
-	@Override
-	public void create() {
-		drawing = new DrawingSystem();
+		
+	public OctoWarGame() {
 		addSprite("badlogic.jpg", 32, 16, 10);
 		// Added last but drawn underneath
-		addSprite("bear.png", -10, -10, 1);
-	}
-
-	@Override
-	public void render() {
-		drawing.draw();
+		addSprite("bear.png", -10, -10, 1);		
 	}
 	
 	// Delete this, it's for testing.
@@ -28,6 +19,6 @@ public class OctoWarGame extends Game {
 		s.setX(x);
 		s.setY(y);		
 		s.setZ(z);
-		drawing.addEntity(new Entity(s));
+		this.addEntity(new Entity(s));
 	}
 }

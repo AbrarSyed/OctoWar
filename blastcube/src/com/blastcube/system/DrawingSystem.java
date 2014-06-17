@@ -19,19 +19,21 @@ import java.util.Map;
 public class DrawingSystem {
 
     private Map<Entity, SpriteComponent> entitySprites = new HashMap<Entity, SpriteComponent>();
-    private List<SpriteComponent> spriteCache;
+    private List<SpriteComponent> spriteCache = new ArrayList<SpriteComponent>();
     private SpriteBatch batch;
     private int screenHeight;
 
-    public DrawingSystem() {
+    public DrawingSystem(Collection<Entity> entities) {
     	this.batch = new SpriteBatch();
     	this.screenHeight = Gdx.graphics.getHeight();
-    }
-    
-    public void initialize(Entity[] entities) {
+    	
     	for (Entity e : entities) {
+			// Initialize all the sprites, etc. now that libGDX is ready.
+    		if (e.has(SpriteComponent.class)) {
+    			e.get(SpriteComponent.class).initialize();
+    		}
     		this.addEntity(e);
-    	}
+    	}    
     }
     
     public void addEntity(Entity e) {
