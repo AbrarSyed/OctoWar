@@ -1,7 +1,8 @@
 package com.blastcube.entity;
 
-import com.blastcube.component.Action;
 import com.blastcube.component.Component;
+import com.blastcube.component.internal.Action;
+
 import org.junit.Assert;
 import org.junit.Test;
 

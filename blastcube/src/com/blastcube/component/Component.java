@@ -1,5 +1,6 @@
 package com.blastcube.component;
 
+import com.blastcube.component.internal.Action;
 import com.blastcube.entity.Entity;
 
 import java.util.ArrayList;
