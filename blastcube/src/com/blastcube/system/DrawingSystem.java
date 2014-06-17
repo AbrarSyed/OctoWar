@@ -32,11 +32,12 @@ public class DrawingSystem {
     		if (e.has(SpriteComponent.class)) {
     			e.get(SpriteComponent.class).initialize();
     		}
-    		this.addEntity(e);
+    		this.addedEntity(e);
     	}    
     }
     
-    public void addEntity(Entity e) {
+    // Hey, we added an entity. Cache it appropriately.
+    public void addedEntity(Entity e) {
     	this.entitySprites.put(e, e.get(SpriteComponent.class));
     	this.sortAndCacheSprites();
     }
