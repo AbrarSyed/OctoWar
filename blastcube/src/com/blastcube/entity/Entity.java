@@ -41,4 +41,10 @@ public class Entity {
             c.receiveEvent(eventName,  data);
         }
     }
+    
+    public void dispose() {
+    	for (Component c : this.components.values()) {
+    		c.dispose();
+    	}
+    }
 }
