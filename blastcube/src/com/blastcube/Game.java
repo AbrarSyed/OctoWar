@@ -6,6 +6,7 @@ import java.util.Collection;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.blastcube.entity.Entity;
 import com.blastcube.system.DrawingSystem;
+import com.blastcube.system.InputSystem;
 
 // Extend this class for your game. It's a swappable extension.
 // You will get (eventually) free stuff like scaling up/down
@@ -13,6 +14,8 @@ import com.blastcube.system.DrawingSystem;
 public abstract class Game  extends ApplicationAdapter {
 	
 	private DrawingSystem drawingSystem;
+	private InputSystem inputSystem;
+	
 	private Collection<Entity> entities = new ArrayList<Entity>();
 	private Scene currentScene = null;
 	private static Game instance;
@@ -24,6 +27,7 @@ public abstract class Game  extends ApplicationAdapter {
 	@Override
 	public void create() {
 		this.drawingSystem = new DrawingSystem(this.entities);
+		this.inputSystem = new InputSystem(this.entities);
 	}
 
 	@Override

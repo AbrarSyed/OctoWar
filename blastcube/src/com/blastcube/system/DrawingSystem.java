@@ -1,11 +1,5 @@
 package com.blastcube.system;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.blastcube.component.SpriteComponent;
-import com.blastcube.entity.Entity;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -13,6 +7,12 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.blastcube.component.SpriteComponent;
+import com.blastcube.entity.Entity;
 
 // Uses data-oriented architecture, meaning, we dissect
 // entities and keep drawable components in a contiguous list.
