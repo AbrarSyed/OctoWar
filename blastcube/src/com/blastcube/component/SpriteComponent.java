@@ -9,9 +9,10 @@ public class SpriteComponent extends Component {
 	private int x = 0;
 	private int y = 0;
 	private int z = 0;
+	private String imageFile = "";
 	
-	public SpriteComponent(String imageFile) {		
-		this.texture = new Texture(imageFile);        
+	public SpriteComponent(String imageFile) {
+		this.imageFile = imageFile;
 	}
 	
 	public Texture getTexture() {
@@ -48,5 +49,10 @@ public class SpriteComponent extends Component {
 
 	public void setZ(int z) {
 		this.z = z;
+	}
+	
+	// "internal" scope method
+	public void initialize() {
+		this.texture = new Texture(this.imageFile);
 	}
 }
