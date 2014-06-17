@@ -1,7 +1,6 @@
 package com.blastcube.component;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.blastcube.entity.Entity;
 
 public class SpriteComponent extends Component {
 
@@ -54,5 +53,10 @@ public class SpriteComponent extends Component {
 	// "internal" scope method
 	public void initialize() {
 		this.texture = new Texture(this.imageFile);
+	}
+	
+	@Override
+	public void dispose() {
+		this.texture.dispose();
 	}
 }

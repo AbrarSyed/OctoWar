@@ -12,23 +12,43 @@ import com.blastcube.system.DrawingSystem;
 // in the right aspect ratio, to fit your device screen.
 public abstract class Game  extends ApplicationAdapter {
 	
-	private DrawingSystem drawing;
+	private DrawingSystem drawingSystem;
 	private Collection<Entity> entities = new ArrayList<Entity>();
+	private Scene currentScene = null;
+	private static Game instance;
+	
+	public Game() {
+		instance = this;
+	}
 	
 	@Override
 	public void create() {
-		this.drawing = new DrawingSystem(this.entities);
+		this.drawingSystem = new DrawingSystem(this.entities);
 	}
 
 	@Override
 	public void render() {
-		this.drawing.draw();
-	}		
+		this.drawingSystem.draw();
+	}
+	
+	public static void showScene(Scene s) {
+		instance.show(s);
+	}
+	
+	public void show(Scene s) {
+		if (currentScene != null) {
+			currentScene.dispose();
+		}
+		
+		currentScene = s;
+		this.entities.addAll(s.getEntities());
+	}
 	
 	protected void addEntity(Entity e) {
 		this.entities.add(e);
-		if (this.drawing != null) {
-			this.drawing.addedEntity(e);
+		// No worries if null, the drawing system constructor adds it.
+		if (this.drawingSystem != null) {
+			this.drawingSystem.addedEntity(e);
 		}
 	}
 }
