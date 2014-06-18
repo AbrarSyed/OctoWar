@@ -10,7 +10,7 @@ import com.blastcube.component.internal.MouseClick;
 // it remains a global click handler.
 public class InputComponent extends Component {
 
-	private final Action<MouseClick> onClickHandler;	
+	private final Action<MouseClick> onClickHandler;
 	private SpriteComponent bounds = null;
 	
 	public InputComponent(Action<MouseClick> onClick) {
