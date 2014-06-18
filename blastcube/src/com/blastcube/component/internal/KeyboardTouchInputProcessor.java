@@ -97,7 +97,19 @@ public class KeyboardTouchInputProcessor implements InputProcessor {
 	}
 	
 	private String keycodeToString(int keyCode) {
-		// ...
-		return String.valueOf(keyCode);
+		switch (keyCode) {
+		case 19:
+			return "up";
+		case 22:
+			return "right";
+		case 20:
+			return "down";
+		case 21:
+			return "left";
+		case 62:
+			return "space";
+		default:
+			return String.valueOf(keyCode);
+		}
 	}
 }
