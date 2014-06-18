@@ -37,5 +37,15 @@ public class InputSystem {
 		        return true; // Click handled~!
 		    }
 		});
+		
+		this.initialize();
+	}
+	
+	public void initialize() {
+		for (Entity e : allEntities) {
+        	if (e.has(InputComponent.class)) {
+        		e.get(InputComponent.class).initialize();
+        	}
+        }
 	}
 }

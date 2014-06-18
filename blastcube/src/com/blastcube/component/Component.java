@@ -10,7 +10,7 @@ import java.util.Map;
 
 public abstract class Component {
 
-    private Entity parent;
+    protected Entity parent;
     
     private Map<String, Collection<Action>> eventHandlers = new HashMap<String, Collection<Action>>();
     
