@@ -24,6 +24,8 @@ public class CoreGameScene extends Scene {
 					s.setY(s.getY() - MOVEMENT_INCREMENT);
 				} else if (key == "down") {
 					s.setY(s.getY() + MOVEMENT_INCREMENT);
+				} else if (key == "space") {
+					System.out.println("ATTACK!");
 				}
 			}
 		}));
