@@ -3,6 +3,7 @@ package com.github.abrarsyed.octowar.scenes;
 import com.blastcube.Game;
 import com.blastcube.Scene;
 import com.blastcube.component.InputComponent;
+import com.blastcube.component.KeyboardInputComponent;
 import com.blastcube.component.SpriteComponent;
 import com.blastcube.component.internal.Action;
 import com.blastcube.component.internal.MouseClick;
@@ -19,6 +20,12 @@ public class TitleScene extends Scene {
 			new InputComponent(new Action<MouseClick>() {
 				@Override
 				public void call(MouseClick data) {
+					Game.showScene(new CoreGameScene());
+				}
+			}),
+			new KeyboardInputComponent(new Action<String>() {
+				@Override
+				public void call(String data) {
 					Game.showScene(new CoreGameScene());
 				}
 			})

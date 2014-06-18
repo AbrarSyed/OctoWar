@@ -7,6 +7,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.blastcube.entity.Entity;
 import com.blastcube.system.DrawingSystem;
 import com.blastcube.system.InputSystem;
+import com.blastcube.system.KeyboardInputSystem;
 
 // Extend this class for your game. It's a swappable extension.
 // You will get (eventually) free stuff like scaling up/down
@@ -15,6 +16,7 @@ public abstract class Game  extends ApplicationAdapter {
 	
 	private DrawingSystem drawingSystem;
 	private InputSystem inputSystem;
+	private KeyboardInputSystem keyboardSystem;
 	
 	private Collection<Entity> entities = new ArrayList<Entity>();
 	private Scene currentScene = null;
@@ -30,6 +32,7 @@ public abstract class Game  extends ApplicationAdapter {
 		// original entity list, but instead, dissects it ...
 		this.drawingSystem = new DrawingSystem(this.entities);
 		this.inputSystem = new InputSystem(this.entities);
+		this.keyboardSystem = new KeyboardInputSystem(this.entities);		
 	}
 
 	@Override
