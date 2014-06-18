@@ -26,6 +26,8 @@ public abstract class Game  extends ApplicationAdapter {
 	
 	@Override
 	public void create() {
+		// Drawing system is a special case; it doesn't retain the
+		// original entity list, but instead, dissects it ...
 		this.drawingSystem = new DrawingSystem(this.entities);
 		this.inputSystem = new InputSystem(this.entities);
 	}
@@ -40,12 +42,20 @@ public abstract class Game  extends ApplicationAdapter {
 	}
 	
 	public void show(Scene s) {
+		this.entities.clear();
+		
 		if (currentScene != null) {
 			currentScene.dispose();
 		}
 		
 		currentScene = s;
 		this.entities.addAll(s.getEntities());
+		
+		// Special case: doesn't keep a real reference to entities
+		// (because of caching). Tell it to reinitialize.
+		if (this.drawingSystem != null) {
+			this.drawingSystem.initialize(this.entities);
+		}
 	}
 	
 	protected void addEntity(Entity e) {
