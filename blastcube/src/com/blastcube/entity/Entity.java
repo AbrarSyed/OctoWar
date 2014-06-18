@@ -1,6 +1,6 @@
 package com.blastcube.entity;
 
-import com.blastcube.component.Component;
+import com.blastcube.component.internal.Component;
 import com.google.common.collect.MutableClassToInstanceMap;
 
 public class Entity {

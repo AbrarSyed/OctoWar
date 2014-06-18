@@ -1,6 +1,7 @@
 package com.blastcube.component;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.blastcube.component.internal.Component;
 
 public class SpriteComponent extends Component {
 

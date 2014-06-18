@@ -1,6 +1,7 @@
 package com.blastcube.component;
 
 import com.blastcube.component.internal.Action;
+import com.blastcube.component.internal.Component;
 import com.blastcube.component.internal.MouseClick;
 
 // Click handler. This class is too smart: if it detects
