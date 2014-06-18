@@ -38,8 +38,8 @@ public class DrawingSystem {
 			// Initialize all the sprites, etc. now that libGDX is ready.
     		if (e.has(SpriteComponent.class)) {
     			e.get(SpriteComponent.class).initialize();
-    		}
-    		this.addedEntity(e);
+    			this.addedEntity(e);
+    		}    		
     	}
     }
     

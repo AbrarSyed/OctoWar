@@ -12,7 +12,10 @@ public class TitleScene extends Scene {
 
 	public TitleScene() {
 		this.addEntity(new Entity(
-			new SpriteComponent("images/octowar.jpg"),
+			new SpriteComponent("images/octowar.jpg")));
+			
+		// Add separately for global click-handling
+		this.addEntity(new Entity(
 			new InputComponent(new Action<MouseClick>() {
 				@Override
 				public void call(MouseClick data) {
