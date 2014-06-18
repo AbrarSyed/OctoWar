@@ -19,7 +19,6 @@ public class TitleScene extends Scene {
 			new InputComponent(new Action<MouseClick>() {
 				@Override
 				public void call(MouseClick data) {
-					System.out.println("Clicked " + data.getX() + ", " + data.getY());
 					Game.showScene(new CoreGameScene());
 				}
 			})
