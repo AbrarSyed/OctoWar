@@ -27,13 +27,20 @@ public class DrawingSystem {
     	this.batch = new SpriteBatch();
     	this.screenHeight = Gdx.graphics.getHeight();
     	
+    	this.initialize(entities);
+    }
+    
+    public void initialize(Collection<Entity> entities) {
+    	this.entitySprites.clear();
+    	this.spriteCache.clear();
+    	
     	for (Entity e : entities) {
 			// Initialize all the sprites, etc. now that libGDX is ready.
     		if (e.has(SpriteComponent.class)) {
     			e.get(SpriteComponent.class).initialize();
     		}
     		this.addedEntity(e);
-    	}    
+    	}
     }
     
     // Hey, we added an entity. Cache it appropriately.
