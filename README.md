@@ -1,1 +1,1 @@
-[Play OctoWar](http://abrarsyed.github.io/octowar)
+# [Play OctoWar](http://abrarsyed.github.io/OctoWar)
