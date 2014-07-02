@@ -1,6 +1,3 @@
-apply plugin: "java"
-
-sourceCompatibility = 1.6
 sourceSets.main.java.srcDirs = [ "src/" ]
 
 project.ext.mainClassName = "com.github.abrarsyed.octowar.desktop.DesktopLauncher"
@@ -15,23 +12,19 @@ task run(dependsOn: classes, type: JavaExec) {
 }
 
 task dist(type: Jar) {
-    from files(sourceSets.main.output.classesDir)
-    from files(sourceSets.main.output.resourcesDir)
+    from files(sourceSets.main.output)
     from {configurations.compile.collect {zipTree(it)}}
     from files(project.assetsDir);
  
     manifest {
         attributes 'Main-Class': project.mainClassName
     }
+
+    dependsOn "classes", "processResources"
 }
 
-dist.dependsOn classes
-
-eclipse {
-    project {
-        name = appName + "-desktop"
-        linkedResource name: 'assets', type: '2', location: 'PARENT-1-PROJECT_LOC/core/assets'
-    }
+eclipse.project {
+    linkedResource name: 'assets', type: '2', location: 'PARENT-1-PROJECT_LOC/core/assets'
 }
 
 task afterEclipseImport(description: "Post processing after project generation", group: "IDE") {

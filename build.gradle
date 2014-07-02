@@ -1,34 +1,27 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        mavenLocal()
-    }
-    
-    dependencies {
-    }
+ext {
+    appName = 'octo-war'
+    gdxVersion = '1.1.0'
+    roboVMVersion = '0.0.13'
 }
 
-allprojects {
-    apply plugin: "eclipse"
+subprojects {
     apply plugin: "java"
+    apply plugin: "eclipse"
 
     version = '1.0'
-    ext {
-        appName = 'octo-war'
-        gdxVersion = '1.1.0'
-        roboVMVersion = '0.0.13'
-    }
+
+    sourceCompatibility = 1.6
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
     repositories {
-        mavenLocal()
         mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
     
     dependencies {
 		testCompile 'junit:junit:4.+'
 	}
+
+    eclipse.project.name = appName + "-" + project.name
     
     // Always log test output, pass/fail/etc.
 	test {
@@ -36,37 +29,12 @@ allprojects {
 			events "passed", "skipped", "failed", "standardOut", "standardError"
 			outputs.upToDateWhen { false }
 		}
-	}	
+	}
 }
 
-project(":desktop") {
-    apply plugin: "java"
-
-
-    dependencies {
-        compile project(":core")
-        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-    }
-}
-
-project(":core") {
-    apply plugin: "java"
-
-
-    dependencies {
-		compile project(":blastcube")
-        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-    }
-}
-
-project(":blastcube") {
-	apply plugin: "java"
-	dependencies {        
-        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"        
-    }
-}
-
-tasks.eclipse.doLast {
-    delete ".project"
+project(":blastcube").dependencies { compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion" }
+project(":desktop").dependencies { compile project(":core") }
+project(":core").dependencies {
+    compile project(":blastcube")
+    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
 }
