@@ -1,5 +1,7 @@
-## Java
+# actually our stuff
+applet
 
+## Java
 *.class
 *.war
 *.ear
@@ -17,16 +19,11 @@ gwt-unitCache/
 www-test/
 .gwt-tmp/
 
-## Android Studio and Intellij and Android in general
+## Android
 android/libs/armeabi/
 android/libs/armeabi-v7a/
 android/libs/x86/
 android/gen/
-.idea/
-*.ipr
-*.iws
-*.iml
-out/
 com_crashlytics_export_strings.xml
 
 ## Eclipse
@@ -45,6 +42,13 @@ local.properties
 .externalToolBuilders/
 *.launch
 
+## intellij
+.idea/
+*.ipr
+*.iws
+*.iml
+out/
+
 ## NetBeans
 **/nbproject/private/
 build/
@@ -55,9 +59,9 @@ nbactions.xml
 nb-configuration.xml
 
 ## Gradle
-
 .gradle
 build/
 
 ## OS Specific
 .DS_Store
+*.swp
