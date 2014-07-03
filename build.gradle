@@ -37,4 +37,5 @@ project(":desktop").dependencies { compile project(":core") }
 project(":core").dependencies {
     compile project(":blastcube")
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }
